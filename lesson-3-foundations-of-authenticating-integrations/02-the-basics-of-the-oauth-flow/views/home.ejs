@@ -1,13 +1,23 @@
-<html lang="EN">
-    <head><title> Getting Started With Hubspot OAuth </title></head>
-    <body>
-        <h1> Getting Started With HubSpot OAuth </h1>
-        <% if(token) { %>
-            <p> You're authenticated using the token: <%= token %> </p>
-            <p> Your account has these cool contacts: </p>
-            <ul><% contacts.forEach(contact){ %>
-                <li> <%= contact.properties.firstname.value %> <%= contact.properties.firstname.value %> </li>
-                
-                <% else{ %><p>You're not authenticated </p><p> Please install me <a href=`${authUrl}`>here</a> </p><% contact.properties.firstname.value %>
-            </body>
-            </html>    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started With Hubspot OAuth</title>
+</head>
+<body>
+    <h1>Getting Started With HubSpot OAuth</h1>
+    <% if (token) { %>
+        <p>You're authenticated using the token: <%= token %></p>
+        <p>Your account has these cool contacts:</p>
+        <ul>
+            <% contacts.forEach(contact => { %>
+                <li><%= contact.properties.firstname.value %> <%= contact.properties.lastname.value %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>You're not authenticated.</p>
+        <p>Please install me <a href="<%= authUrl %>">here</a></p>
+    <% } %>
+</body>
+</html>
+
